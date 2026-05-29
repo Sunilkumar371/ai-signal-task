@@ -1,36 +1,215 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# College Discovery Platform API
 
-## Getting Started
+A backend-first College Discovery Platform built as part of an AI Software Engineer Internship assignment.
 
-First, run the development server:
+The platform helps students discover, compare, and save colleges through a structured set of APIs with authentication, filtering, pagination, and comparison capabilities.
 
-```bash
+---
+
+## Live Demo
+
+Vercel Deployment: <YOUR_VERCEL_URL>
+
+---
+
+## Tech Stack
+
+### Backend
+
+* Next.js 15 API Routes
+* TypeScript
+* PostgreSQL
+* Prisma ORM
+* JWT Authentication
+* Zod Validation
+
+### Database
+
+* PostgreSQL
+* Neon Database
+
+### Deployment
+
+* Vercel
+
+---
+
+## Features
+
+### Authentication
+
+* User Registration
+* User Login
+* Current User Profile
+* JWT-based Authorization
+* Password Hashing using bcrypt
+
+### College Discovery
+
+* College Listing
+* Search by College Name
+* Filter by Location
+* Filter by Fee Range
+* Sorting
+* Pagination
+
+### College Details
+
+* College Overview
+* Courses
+* Placements
+* Reviews
+
+### Saved Colleges
+
+* Save College
+* Get Saved Colleges
+* Remove Saved College
+
+### College Comparison
+
+Compare up to 3 colleges based on:
+
+* Fees
+* Ratings
+* Location
+* Average Package
+* Highest Package
+* Value Score
+
+---
+
+## Database Design
+
+### User
+
+Stores user information and authentication data.
+
+### College
+
+Stores college information including fees, ratings, and location.
+
+### Course
+
+Stores courses offered by a college.
+
+### Placement
+
+Stores placement statistics.
+
+### Review
+
+Stores student reviews and ratings.
+
+### SavedCollege
+
+Many-to-many relationship between users and colleges.
+
+---
+
+## Architecture
+
+The application follows a layered architecture:
+
+Route → Validation → Service → Prisma → Database
+
+### Folder Structure
+
+
+├── app/api
+
+├── services
+
+├── schemas
+
+├── validations
+
+├── lib
+
+└── generated
+
+### Design Decisions
+
+* Service layer separates business logic from routes.
+* Zod is used for request validation.
+* Prisma handles database access.
+* Async wrapper centralizes error handling.
+* Standardized API responses across all endpoints.
+* Database indexes added on searchable fields.
+
+---
+
+## API Endpoints
+
+### Authentication
+
+POST /api/auth/register
+
+POST /api/auth/login
+
+GET /api/auth/me
+
+### Colleges
+
+GET /api/colleges
+
+GET /api/colleges/:id
+
+### Saved Colleges
+
+POST /api/saved
+
+GET /api/saved
+
+DELETE /api/saved/:collegeId
+
+### Compare Colleges
+
+GET /api/compare?ids=id1,id2,id3
+
+---
+
+## Installation
+
+Clone repository
+
+Install dependencies
+
+npm install
+
+Configure environment variables
+
+NODE_ENV=
+
+DATABASE_URL=
+
+JWT_SECRET=
+
+Run migrations
+
+npx prisma migrate dev
+
+Seed database
+
+npm prisma db seed
+
+Start development server
+
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Future Improvements
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+* Advanced recommendation engine
+* College predictor tool
+* Caching with Redis
+* Role-based authorization
+* OpenAPI/Swagger documentation
+* Analytics dashboard
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Author
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Lachapeta Sunil

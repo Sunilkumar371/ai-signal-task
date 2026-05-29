@@ -29,6 +29,11 @@ model College {
   reviews    Review[]
   savedBy    SavedCollege[]
 
+
+  @@index([name])
+  @@index([location])
+  @@index([rating])
+  
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
