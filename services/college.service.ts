@@ -1,5 +1,5 @@
 import { ApiError } from "@/lib/api-error";
-import { Prisma } from "@/app/generated/prisma";
+import { Prisma } from "@prisma/client";
 import { prisma } from "@/lib/prisma";
 
 import { GetCollegesInput } from "@/schemas/college.schema";
