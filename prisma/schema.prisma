@@ -1,7 +1,5 @@
-
 generator client {
-  provider = "prisma-client"
-  output   = "../app/generated/prisma"
+  provider = "prisma-client-js"
 }
 
 datasource db {
@@ -9,73 +7,73 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User{
-  id String @id @default(uuid())
-  name String
-  email String @unique
+model User {
+  id       String         @id @default(uuid())
+  name     String
+  email    String         @unique
   password String
-  saved SavedCollege[]
+  saved    SavedCollege[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model College{
-  id String @id @default(uuid())
-  name String
-  location String
-  fees Int
-  rating Float
-  courses Course[]
+model College {
+  id         String         @id @default(uuid())
+  name       String
+  location   String
+  fees       Int
+  rating     Float
+  courses    Course[]
   placements Placement[]
-  reviews Review[]
-  savedBy SavedCollege[]
+  reviews    Review[]
+  savedBy    SavedCollege[]
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Course{
-  id String @id @default(uuid())
-  name String
-  duration String
+model Course {
+  id        String  @id @default(uuid())
+  name      String
+  duration  String
   collegeId String
-  college College @relation(fields: [collegeId],references: [id])
+  college   College @relation(fields: [collegeId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Placement{
-  id String @id @default(uuid())
+model Placement {
+  id             String  @id @default(uuid())
   averagePackage Float
   highestPackage Float
-  collegeId String
-  college College @relation(fields: [collegeId],references: [id])
+  collegeId      String
+  college        College @relation(fields: [collegeId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model Review{
-  id String @id @default(uuid())
-  rating Float
-  comment String
+model Review {
+  id        String  @id @default(uuid())
+  rating    Float
+  comment   String
   collegeId String
-  college College @relation(fields: [collegeId],references: [id])
+  college   College @relation(fields: [collegeId], references: [id])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
 
-model SavedCollege{
-  id String @id @default(uuid())
-  userId String
+model SavedCollege {
+  id        String   @id @default(uuid())
+  userId    String
   collegeId String
-  user User @relation(fields: [userId],references: [id])
-  college College @relation(fields: [collegeId],references: [id])
-
-  @@unique([userId,collegeId])
+  user      User     @relation(fields: [userId], references: [id])
+  college   College  @relation(fields: [collegeId], references: [id])
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+
+  @@unique([userId, collegeId])
 }
