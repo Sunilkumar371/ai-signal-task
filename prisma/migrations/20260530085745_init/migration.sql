@@ -74,6 +74,15 @@ CREATE TABLE "SavedCollege" (
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
 
 -- CreateIndex
+CREATE INDEX "College_name_idx" ON "College"("name");
+
+-- CreateIndex
+CREATE INDEX "College_location_idx" ON "College"("location");
+
+-- CreateIndex
+CREATE INDEX "College_rating_idx" ON "College"("rating");
+
+-- CreateIndex
 CREATE UNIQUE INDEX "SavedCollege_userId_collegeId_key" ON "SavedCollege"("userId", "collegeId");
 
 -- AddForeignKey

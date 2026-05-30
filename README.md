@@ -126,7 +126,7 @@ Route → Validation → Service → Prisma → Database
 
 ├── lib
 
-└── generated
+
 
 ### Design Decisions
 
@@ -191,7 +191,7 @@ npx prisma migrate dev
 
 Seed database
 
-npm prisma db seed
+npx prisma db seed
 
 Start development server
 
