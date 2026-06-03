@@ -8,7 +8,7 @@ The platform helps students discover, compare, and save colleges through a struc
 
 ## Live Demo
 
-Vercel Deployment: [<YOUR_VERCEL_URL>](https://ai-signal-task.vercel.app/)
+Vercel Deployment: [Link](https://ai-signal-task.vercel.app/)
 
 ---
 
